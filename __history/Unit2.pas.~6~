@@ -1,0 +1,46 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm2 = class(TForm)
+    Memo1: TMemo;
+    Memo2: TMemo;
+    Timer1: TTimer;
+    Timer2: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+var
+Mouse : TMouse;
+begin
+ Mouse := TMouse.Create;
+ Memo1.Lines.Add(IntToStr(Mouse.CursorPos.X) + ','+IntToStr(Mouse.CursorPos.Y));
+end;
+
+procedure TForm2.Timer2Timer(Sender: TObject);
+var
+I : string;
+begin
+I := WH_KEYBOARD
+Memo2.Lines.Add(I);
+end;
+
+end.
